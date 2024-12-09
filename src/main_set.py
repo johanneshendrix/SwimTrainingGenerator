@@ -5,12 +5,14 @@ import random
 def generate_main_set(category, materials):
     
     mainset_length = 0
-    strokes = ["Free", "Back", "Breast", "Fly", "IM"]
+    strokes = ["Free", "Back", "Breast", "Fly", "IM"] #names of different strokes (IM = all strokes )
     material_list = materials  
-    distances = [25, 50, 100, 150, 200, 300, 400]
+    distances = [25, 50, 100, 150, 200, 300, 400] 
     exercise_types = ["single stroke", "two strokes", "kick", "drill", "kick with material", "drill with material", "swim with material"]
     repetitions = [1, 2, 3, 4]
 
+
+    # depending on which category the user chooses, the max_length of the main set will defer
     if category == "easy":
         max_mainset_length = 1200
     elif category == "normal":
@@ -20,6 +22,7 @@ def generate_main_set(category, materials):
 
     main_set_exercises = []
 
+    # keep adding elements to the main_set list until the max_mainset_length is not reached 
     while mainset_length != max_mainset_length:
         stroke = random.choice(strokes)
         distance = random.choice(distances)
@@ -30,7 +33,7 @@ def generate_main_set(category, materials):
         possible_repetitions = [r for r in repetitions if r * distance <= remaining_capacity]
 
         if possible_repetitions:
-            # Choose a valid repetition count
+            # Choose a valid repetition count from the calculated values in possible_repetitions
             repetition = random.choice(possible_repetitions)
             total_distance = repetition * distance
 
