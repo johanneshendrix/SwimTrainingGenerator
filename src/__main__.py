@@ -16,7 +16,7 @@ def main():
     mainset_length, mainset_exercises = main_set.generate_main_set(training_type, available_equipment)
     cool_down_length = cool_down.generate_cool_down(training_type)
 
-    # Display the training plan
+    # Display the entire training plan
     print("\nHere is your training plan:")
     print("\nWarm-up:")
     for exercise in warm_up_exercises:
