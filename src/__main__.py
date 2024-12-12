@@ -1,4 +1,4 @@
-from __GUI import TkinterApp
+from __GUI__ import TkinterApp
 import warm_up
 import main_set
 import cool_down

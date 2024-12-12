@@ -38,27 +38,30 @@ def generate_main_set(category, materials):
             total_distance = repetition * distance
 
             mainset_length += total_distance
-            if exercise_type == "single stroke":
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke} at ")
-            
-            elif exercise_type == "two strokes":
-                second_stroke = random.choice(strokes)
-                main_set_exercises.append(f"{repetition} x {distance}m ({distance // 2} {stroke}/{distance // 2} {second_stroke})")
-            elif exercise_type == "kick":
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke}, kick")
 
-            elif exercise_type == "drill":
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke}, drills")
+            match exercise_type:
 
-            elif exercise_type == "swim with material":
-                material = random.choice(material_list)
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke}, w/ {material}")
-            elif exercise_type == "kick with material":
-                material = random.choice(material_list)
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke}, kick, w/ {material}")
-            elif exercise_type == "drill with material":
-                material = random.choice(material_list)
-                main_set_exercises.append(f"{repetition} x {distance}m {stroke}, drills, w/ {material}")
+                case "single stroke":
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke} at ")
+                
+                case "two strokes":
+                    second_stroke = random.choice(strokes)
+                    main_set_exercises.append(f"{repetition} x {distance}m ({distance // 2} {stroke}/{distance // 2} {second_stroke})")
+                case "kick":
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke}, kick")
+
+                case "drill":
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke}, drills")
+
+                case "swim with material":
+                    material = random.choice(material_list)
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke}, w/ {material}")
+                case "kick with material":
+                    material = random.choice(material_list)
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke}, kick, w/ {material}")
+                case "drill with material":
+                    material = random.choice(material_list)
+                    main_set_exercises.append(f"{repetition} x {distance}m {stroke}, drills, w/ {material}")
             
 
         # If no valid repetition exists, try another distance or break
