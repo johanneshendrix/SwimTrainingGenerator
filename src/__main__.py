@@ -3,6 +3,10 @@ import warm_up
 import main_set
 import cool_down
 
+"""
+Run this file to start executing the program and generate a swim training
+"""
+
 def main():
     # Launch the GUI and get user inputs
     app = TkinterApp()
@@ -28,7 +32,7 @@ def main():
 
     print("\nCool down:")
     print(f"{cool_down_length}m choice")
-    print(f"\nTotal Training Distance: {mainset_length + warm_up_length + cool_down_length}m")
+    print(f"\nTotal Training Distance: {mainset_length + warm_up_length + cool_down_length}m\n")
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 # file: tkinter_app.py
-from tkinter import *
+from tkinter import Tk, Label, Checkbutton, Radiobutton, Button, IntVar, StringVar, messagebox
 
 class TkinterApp:
     def __init__(self):
@@ -54,6 +54,11 @@ class TkinterApp:
 
     def submit_and_close(self):
         """Handle submission and close the window."""
+        # Validate that a difficulty level has been selected
+        if self.difficulty.get() == "None":
+            messagebox.showerror("Error", "Please select a difficulty level before submitting.")
+            return  # Prevent the window from closing
+
         self.submit_materials()  # Update material_list
         self.submit_difficulty()  # Update difficulty
         self.is_submitted = True
@@ -83,3 +88,8 @@ class TkinterApp:
     def run(self):
         """Run the main event loop."""
         self.window.mainloop()
+
+# Example of running the application
+if __name__ == "__main__":
+    app = TkinterApp()
+    app.run()
